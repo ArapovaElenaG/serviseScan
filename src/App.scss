@@ -1,0 +1,65 @@
+/* @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+@font-face {
+  font-family: 'Ferry';
+  src: url('../public/fonts/ferry_black.otf');
+}
+
+// + шрифт 'Inter' с гугла
+
+$prime_color_1: #029491;
+$prime_color_2: #000000;
+$prime_color_3: #ffffff;
+
+$supplemental_color_1: #FFB64F;
+$supplemental_color_2: #7CE3E1;
+$supplemental_color_3: #5970FF;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+
+
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.h {
+  font-family: 'Ferry', Tahoma, Verdana, sans-serif;
+}
+
+.h1 {
+  font-size: 55px;
+}
+
+.h2 {
+  font-size: 43px;
+}
+
+.h3 {
+  font-size: 38px;
+}
+
+
+.h5 {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}

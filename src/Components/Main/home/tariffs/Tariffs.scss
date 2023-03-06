@@ -1,0 +1,89 @@
+@import '../../../../App.scss';
+
+
+.hom_sec3_tariffs {
+    display: flex;
+    justify-content: space-between;
+    margin: 70px 0 118px;
+    font-size: 18px;
+
+    .tarif {
+        width: 32%;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        overflow: hidden;
+
+        .sec3_h5 {
+            margin-bottom: 10px;
+        }
+
+        .Beginner {
+            background-color: $supplemental_color_1;
+        }
+        .Pro {
+            background-color: $supplemental_color_2;
+        }
+        .Business {
+            background-color: $prime_color_2;
+            color: $prime_color_3;
+        }
+        .title {
+            display: flex;
+            justify-content: space-between;
+
+            .title_text {
+                margin: 30px 0 34px 30px;
+            }
+            .img {
+                margin: 11px 15px 0 0;
+            }
+        }
+
+        .currentTariff {
+            height: 24px;
+            margin-top: 12px;
+        }
+
+        .text {
+            margin-left: 30px;
+
+            .oldPrice {
+                opacity: 50%;
+                text-decoration: line-through;
+                font-size: 25px;
+            }
+        }
+
+        .ul {
+            padding: 0;
+            margin-top: 59px;
+
+            .ul_title {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .li {
+                list-style-type: none;
+            }
+    
+            .li:before {
+                content: '✔';
+            }
+        }
+
+        .button {
+            background-color: $supplemental_color_3;
+            width: calc(100% - 60px);
+            height: 59px;
+            margin: 55px 30px 24px;
+            border: none;
+            border-radius: 5px;
+            color: $prime_color_3;
+            font-size: 20px;
+        }
+
+    }
+
+}

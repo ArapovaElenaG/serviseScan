@@ -1,0 +1,38 @@
+@import '../../../App.scss';
+
+
+.home_section1 {
+    display: flex;
+    margin: 60px 0 109px;
+
+    .content_left {
+        width: 55%;
+
+        .subtitle {
+            width: 534px;
+            font-size: 20px;
+            margin: 20px 0 70px;
+        }
+
+        .button {
+            background-color: $supplemental_color_3;
+            color: $prime_color_3;
+            font-size: 22px;
+            border: none;
+            border-radius: 5px;
+            padding: 18px 64px;
+        }
+    }
+
+    .content_right {
+        width: 45%;
+        background-image: url('./images/image1_home.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 22.5% 0;
+    }
+}
+
+.home_section3 {
+    margin: 105px 0 0;
+}

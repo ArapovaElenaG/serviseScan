@@ -1,0 +1,56 @@
+@import '../../App.scss';
+
+
+
+.header {
+    height: 93px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .ul {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .li {
+            margin: 0 10px;
+            list-style-type: none;
+
+            .a {
+                text-decoration: none;
+                font-size: 14px;
+                color: $prime_color_2;
+            }
+
+            .a:hover {
+                color: $supplemental_color_3;
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+
+        .button {
+            background-color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 12px;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background-color: $supplemental_color_2;
+            cursor: pointer;
+        }
+
+        .vertBar {
+            margin: 0 20px;
+            height: 26px;
+        }
+    }
+
+    
+}

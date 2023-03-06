@@ -1,0 +1,25 @@
+@import '../../../../App.scss';
+
+.wrapper_carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 70px 0;
+
+    .arrow_carousel {
+        display: flex;
+        align-items: center;
+    }
+
+    .carousel {
+        display: flex;
+        justify-content: space-between;
+
+        .carousel_item {
+            width: calc(32%);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 22px 20px 45px;
+        }
+    }
+}
