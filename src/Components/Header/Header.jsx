@@ -22,6 +22,7 @@ function Header() {
     }
 
     const handleAuthorization = () => {
+        navigate("/login");
         dispatch(displayAuthorization())
     }
 

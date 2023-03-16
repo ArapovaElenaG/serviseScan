@@ -1,0 +1,17 @@
+@import '../../../App.scss';
+
+
+.wrapper {
+    display: flex;
+    margin: 69px 0 80px;
+
+    .contentLeft {
+        width: 55%;
+
+        .authorizationImage {
+            width: 322px;
+            margin: 14px 0 0 50px;
+        }
+    }
+}
+

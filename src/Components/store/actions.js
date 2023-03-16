@@ -1,9 +1,57 @@
 export const ACTIONS = {
     LOG_IN_ACCOUNT: 'LOG_IN_ACCOUNT',
     LOG_OUT_ACCOUNT: 'LOG_IN_ACCOUNT',
+
     DISPLAY_REGISTRATION: 'DISPLAY_REGISTRATION',
     DISPLAY_AUTHORIZATION: 'DISPLAY_AUTHORIZATION',
+
+    SHOW_HIDE_PASSWORD: 'SHOW_HIDE_PASSWORD',
+    SEND_REQUEST_AUT: 'SEND_REQUEST_AUT',
+    GET_RESPONSE_AUT: 'GET_RESPONSE_AUT',
+
+
 }
+
+
+
+// сделать активной форму регистрации
+export const displayRegistration = () => {
+    return {
+        type: ACTIONS.DISPLAY_REGISTRATION,
+    }
+}
+
+// сделать активной форму авторизации
+export const displayAuthorization = () => {
+    return {
+        type: ACTIONS.DISPLAY_AUTHORIZATION,
+    }
+}
+
+// показать/скрыть пароль
+export const showHidePassword = () => {
+    return {
+        type: ACTIONS.SHOW_HIDE_PASSWORD,
+    }
+}
+
+// отправление запроса на сервер на авторизацию
+export const sendRequestAut = (flag) => {
+    return {
+        type: ACTIONS.SEND_REQUEST_AUT,
+        flag
+    }
+}
+
+// получение ответа сервера на запрос авторизации
+export const getResponseAut = (response) => {
+    return {
+        type: ACTIONS.GET_RESPONSE_AUT,
+        response
+    }
+}
+
+
 
 
 // войти в личный кабинет
@@ -20,19 +68,17 @@ export const logOutAccount = () => {
     }
 }
 
-// сделать активной форму регистрации
-export const displayRegistration = () => {
-    return {
-        type: ACTIONS.DISPLAY_REGISTRATION,
-    }
-}
 
-// сделать активной форму авторизации
-export const displayAuthorization = () => {
-    return {
-        type: ACTIONS.DISPLAY_AUTHORIZATION,
-    }
-}
+
+
+
+
+
+
+
+
+
+
 
 
 

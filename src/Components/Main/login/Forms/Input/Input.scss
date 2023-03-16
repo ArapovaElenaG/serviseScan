@@ -1,0 +1,120 @@
+@import '../../../../../App.scss';
+
+.wrapperInput {
+    position: relative;
+
+    .wrapperLabel {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .label {
+            font-size: 16px;
+        }
+    
+        .question {
+            position: relative;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 1px solid #C7C7C7;
+            background-color: $prime_color_1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        // остальные параметры подсказки выше уровнем 
+    }
+
+
+    .input {
+        width: 100%;
+        height: 43px;
+        border-radius: 5px;
+        border: 1px solid #C7C7C7;
+        margin: 15px 0 6px;
+        font-size: 16px;
+        padding: 1px 32px 1px 2px;
+    }
+
+
+    .inputInvalid {
+        box-shadow: 0 0 10px rgba(255, 89, 89, .3);
+        border: 1px solid rgb(255, 89, 89);
+    }
+    
+    // .input:focus:invalid {
+    //     // border: 1px solid #C7C7C7;
+    //     box-shadow: none;
+    // }
+
+
+    // .wrapperError {
+    //     height: 17px;
+    //     text-align: center;
+    
+        .errorInput {
+            color: rgb(255, 89, 89);
+            font-size: 14px;
+        }
+
+        .errorPassAut {
+            color: $supplemental_color_3;
+        }
+    // }
+
+    .eye {
+        height: 28px;
+        position: absolute;
+        top: 40px;
+        left: calc(100% - 31px);
+    }
+}
+
+// .wrapperInput:after{
+//     content: attr(dataTooltip);  /* Выводим текст */
+//     position: absolute;  /* Абсолютное позиционирование */
+//     top: 0px;            /* Положение подсказки */
+//     left: 0px;           
+//     width: calc(100% - 20px);
+//     background: $prime_color_1;  /* Цвет фона */
+//     color: $prime_color_3;       /* Цвет текста */
+//     border-radius: 5px;         /* Скругление края */
+//     padding: 10px;               /* Поля вокруг текста */
+//     opacity: 0;                  /*Подсказка невидима */
+//     transform: translateY(-20px);
+//     transition:0.34s linear;     /* Время появления подсказки */
+//     box-shadow:0 5px 12px #ccc;   /* Параметры тени */
+//     pointer-events: none;           /* Предотвратить взаимодействие курсора мыши с подсказкой */
+//     z-index: 2;
+// }
+
+// .wrapperInput:hover:after{
+//     opacity: 1;
+//     // transform: translateY(0);
+//     top: 100px; /*Положение подсказки */
+//     left: 0;  
+// }
+
+
+
+
+
+
+
+// [dataTooltip]::after::before {
+//     content: '';
+//     width: 0;
+//     height: 0;
+//     border-top: 10px solid transparent;
+//     border-bottom: 10px solid transparent;
+//     border-right: 10px solid #0067A3;
+//     position: absolute;
+//     left: -5px;
+//     top: 50%;
+//     transform: translateY(-50%);
+// }
+
+
+

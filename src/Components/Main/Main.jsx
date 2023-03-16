@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Home from './home/Home';
 import Error from './error/Error';
 import Login from './login/Login';
@@ -10,7 +10,6 @@ import Login from './login/Login';
 function Main() {
     return (
         <main>
-            <BrowserRouter>
                 <Routes>
                     <Route 
                         exact path="/" 
@@ -29,7 +28,6 @@ function Main() {
 
                     <Route path="*" element={<Error/>}></Route>
                 </Routes>
-            </BrowserRouter>
         </main>
     )
 }
