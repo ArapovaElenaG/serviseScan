@@ -1,18 +1,35 @@
 import { combineReducers } from "redux";
 import loginReduсer from "./loginReducer";
+import objectSearchReducer from "./objectSearchReducer";
 
-import { createStore } from 'redux'; 
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+// const rootPersistConfig = {
+//     key: 'root',
+//     storage,
+//     whitelist: ['login']
+// }
+
+const loginPersistConfig = {
+    key: 'loginReduсer',
+    storage: storage,
+    whitelist: ['token', 'userData']
+};
+
+const objectSearchPersistConfig = {
+    key: 'objectSearchReducer',
+    storage: storage,
+    whitelist: ['histograms', 'searchResultItem', 'scanDoc']
+};
+
+
 
 const rootReducer = combineReducers({
-    loginReduсer,
-    
+    loginReduсer: persistReducer(loginPersistConfig, loginReduсer),
+    objectSearchReducer: persistReducer(objectSearchPersistConfig, objectSearchReducer),
+    // loginReduсer,
+    // objectSearchReducer,
 })
 
-
-
-
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-// export default rootReducer;
-export default store;
-
+export default rootReducer;

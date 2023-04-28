@@ -1,0 +1,42 @@
+@import '../../../App.scss';
+
+.linkBack{
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.tariffsPage {
+    display: block;
+
+    .tarif {
+        width: 100%;
+        border-radius: 0px;
+        padding-bottom: 50px;
+        margin-top: 20px;
+
+
+        .title {
+            position: relative;            
+
+            .title_text {
+                margin: 30px auto 34px;
+                text-align: center;
+                
+            }
+
+            .img {
+                position: absolute;
+                right: 0;
+            }
+        }
+
+
+        .ul {
+            margin-bottom: 30px;
+        }
+    }
+}
+
+

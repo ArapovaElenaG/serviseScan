@@ -1,14 +1,25 @@
 import {ACTIONS} from './actions';
 
+// hardCode
+// если авторизация прошла успешно и записывается токен, то записываем в userData данный hardCode
+import avatar from './images/samsung.jpg';
+export const userData = {
+    firstName: 'алексей',
+    lastName: 'алексеев',
+    avatar,
+    tarif: 'pro'
+}
 
 
 const initialState = {
     activeRegistration: false,
     passwordVisible: false,
-    sendingRespAut: '',
-    messageRespAut: '',
-    expireRespAut: '',
-    // loggedIn: false,
+    sendingRespAut: '',  
+    token: null,
+    errorRespAut: null,
+    accountSettings: null,
+    errorAccountSettings: null,
+    userData: {}
 }
 
 const loginReduсer = (state = initialState, action) => {
@@ -32,7 +43,15 @@ const loginReduсer = (state = initialState, action) => {
                 passwordVisible: !state.passwordVisible,
             }
 
-        case ACTIONS.SEND_REQUEST_AUT:
+        case ACTIONS.DELETE_ERROR_BEFORE_SENDING:
+            return {
+                ...state,
+                passwordVisible: !state.passwordVisible,
+            }
+
+            
+
+        case ACTIONS.SENDING_REQUEST_AUT:
             return {
                 ...state,
                 sendingRespAut: action.flag,
@@ -42,74 +61,41 @@ const loginReduсer = (state = initialState, action) => {
             if (state.sendingRespAut === 200) {
                 return {
                     ...state,
-                    expireRespAut: action.response,
-                    messageRespAut: '',
+                    token: action.response,
+                    errorRespAut: null,
+                    userData: userData,
                 }
             } else {
                 return {
                     ...state,
-                    messageRespAut: action.response,
-                    expireRespAut: '',
+                    errorRespAut: action.response,
+                    accessRespAut: null,
                 }
             }
-            
 
-
-        case ACTIONS.LOG_IN_ACCOUNT:
+        case ACTIONS.GET_RESPONSE_ACCOUNT_SETTINGS:
             return {
                 ...state,
-                loggedIn: true,
+                accountSettings: action.response,
+                userData: userData,
+            }
+
+        case ACTIONS.GET_ERROR_ACCOUNT_SETTINGS:
+            return {
+                ...state,
+                errorAccountSettings: action.status
             }
 
         case ACTIONS.LOG_OUT_ACCOUNT:
             return {
                 ...state,
-                loggedIn: false,
+                sendingRespAut: '',  
+                token: null,
+                errorRespAut: null,
+                accountSettings: null,
+                errorAccountSettings: null,
+                userData: {},
             }
-
-
-
-
-
-            
-
-
-        // case ACTIONS.REMOVE_FROM_READYTASKS:
-        //     return {
-        //         ...state,
-        //         readyTasks: state.readyTasks.filter(item => item.id !== action.task.id), 
-        //     }
-
-        // case ACTIONS.ADD_TO_PROGRESSTASKS:
-        //     return {
-        //         ...state,
-        //         readyTasks: state.readyTasks.filter(item => item.id !== action.task.id),
-        //     }
-
-
-        // case ACTIONS.CLICK_BTN_READY:
-        //     return {
-        //         ...state,
-        //         clickedBtnReady: !state.clickedBtnReady,
-        //     }
-
-        
-        // case ACTIONS.CLICK_SELECT_READY:
-        //     return {
-        //         ...state,
-        //         clickedSelectReady: !state.clickedSelectReady,
-        //     }
-
-
-        // case ACTIONS.ADD_DESCRIPTION_READY:
-        //     return {
-        //         ...state,
-        //         readyTasks: state.readyTasks.map((item, index) => {
-        //             if (index === action.indexReady) {return {...item, discription: action.textareaValue}}
-        //             else {return item}
-        //         })
-        //     }
-
 
         default:
             return state

@@ -1,14 +1,15 @@
 @import '../../App.scss';
 
 .wrapper_footer {
-    background-color: $prime_color_1;
+    background-color: $prime_1;
+    flex-shrink: 0;
 
     .footer {
         height: 137px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: $prime_color_3;
+        color: $prime_3;
 
         .contacts {
             font-size: 14px;

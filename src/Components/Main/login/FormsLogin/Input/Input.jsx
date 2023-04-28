@@ -8,8 +8,9 @@ import {showHidePassword} from '../../../../store/actions';
 
 
 
-function Input ({name, type, id, validate, invalidValue, placeholder, tooltip}) {
+function Input ({name, type, id, validate, invalidValue, placeholder, tooltip, defaultValue}) {
 
+    // в стейт записываем чистоту и инвалидность инпута
     const [touched, setTouched] = React.useState(false);
     const [invalid, setInvalid] = React.useState('');
 
@@ -18,8 +19,15 @@ function Input ({name, type, id, validate, invalidValue, placeholder, tooltip}) 
 
 
     const handleChange = (value) => {
-        if (validate(id, value)) {setInvalid('')}
-        else if (!value) {setInvalid('Это поле не может быть пустым')}
+        if (type === 'tel') {
+
+        }
+
+        if (!value) {
+            setInvalid('Это поле не может быть пустым');
+            validate(id, value);
+        }
+        else if (validate(id, value)) {setInvalid('')}
         else {setInvalid(invalidValue)}
     }
 
@@ -30,13 +38,13 @@ function Input ({name, type, id, validate, invalidValue, placeholder, tooltip}) 
 
     return (
         <div 
-            className="wrapperInput" 
+            className={`wrapperInput ${id.includes('search') ? 'wrapperInputSearch' : ''}`}
             // dataTooltip={tooltip}
         >
             <div className='wrapperLabel'>
                 <label htmlFor={id} className='label'>{name}</label>
                 {tooltip && 
-                <div className='question' dataTooltip={tooltip}>
+                <div className={`question ${id.includes('search') ? 'questionSearch' : ''}`} datatooltip={tooltip}>
                     <img src={infoCircle} alt="Подсказка"/>
                 </div>
                 }
@@ -45,15 +53,16 @@ function Input ({name, type, id, validate, invalidValue, placeholder, tooltip}) 
             <input 
                 type={type} 
                 id={id} 
-                className={`input ${(invalid && id !== 'passwordAut') ? 'inputInvalid' : ''}`}
+                className={`input ${(invalid && id !== 'passwordAut') ? 'inputInvalid' : ''} ${id.includes('search') ? 'inputSearch' : ''}`}
                 onChange={(e) => handleChange(e.target.value)}
                 onBlur={(e) => handleBlur()} 
                 placeholder={placeholder} 
                 // pattern='/\+7\d{10}/' для этого псевдокласс .input:invalid
+                defaultValue={defaultValue}
             />
-            <div className='wrapperError'>
+            <div className={`wrapperError ${id.includes('search') ? 'wrapperErrorSearch' : ''}`}>
                 {(touched && invalid) && 
-                <span className={`errorInput ${id === 'passwordAut' ? 'errorPassAut' : ''}`}>{invalid}</span>}
+                <span className={`errorMessage ${id === 'passwordAut' ? 'errorPassAut' : ''}`}>{invalid}</span>}
             </div>
             {id.includes('assword') && <img src={passwordVisible ? eye_visible : eye_not_visible} alt="" className='eye' onMouseOver={clickEyePas} onMouseOut={clickEyePas}/>}
         </div>

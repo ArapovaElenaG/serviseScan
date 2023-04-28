@@ -1,15 +1,16 @@
 export const ACTIONS = {
-    LOG_IN_ACCOUNT: 'LOG_IN_ACCOUNT',
-    LOG_OUT_ACCOUNT: 'LOG_IN_ACCOUNT',
-
     DISPLAY_REGISTRATION: 'DISPLAY_REGISTRATION',
     DISPLAY_AUTHORIZATION: 'DISPLAY_AUTHORIZATION',
-
     SHOW_HIDE_PASSWORD: 'SHOW_HIDE_PASSWORD',
-    SEND_REQUEST_AUT: 'SEND_REQUEST_AUT',
+    SENDING_REQUEST_AUT: 'SEND_REQUEST_AUT',
     GET_RESPONSE_AUT: 'GET_RESPONSE_AUT',
-
-
+    GET_RESPONSE_ACCOUNT_SETTINGS: 'GET_RESPONSE_ACCOUNT_SETTINGS',
+    GET_ERROR_ACCOUNT_SETTINGS: 'GET_ERROR_ACCOUNT_SETTINGS',
+    LOG_OUT_ACCOUNT: 'LOG_OUT_ACCOUNT',
+    ADD_HISTOGRAM: 'ADD_HISTOGRAM',
+    ADD_SEARCHRESULTITEM: 'ADD_SEARCHRESULTITEM',
+    ADD_SCANDOC: 'ADD_SCANDOC',
+    REMOVE_OBJECT_SEARCH: 'REMOVE_OBJECT_SEARCH'
 }
 
 
@@ -36,9 +37,9 @@ export const showHidePassword = () => {
 }
 
 // отправление запроса на сервер на авторизацию
-export const sendRequestAut = (flag) => {
+export const sendingRequestAut = (flag) => {
     return {
-        type: ACTIONS.SEND_REQUEST_AUT,
+        type: ACTIONS.SENDING_REQUEST_AUT,
         flag
     }
 }
@@ -51,13 +52,19 @@ export const getResponseAut = (response) => {
     }
 }
 
-
-
-
-// войти в личный кабинет
-export const logInAccount = () => {
+// поучение ответа сервера на запрос параметров аккаунта
+export const getResponseAccountSettings = (response) => {
     return {
-        type: ACTIONS.LOG_IN_ACCOUNT,
+        type: ACTIONS.GET_RESPONSE_ACCOUNT_SETTINGS,
+        response
+    }
+}
+
+// получение ошибки от сервера на запрос параметров аакаунта
+export const getErrorAccountSettings = (status) => {
+    return {
+        type: ACTIONS.GET_ERROR_ACCOUNT_SETTINGS,
+        status
     }
 }
 
@@ -69,114 +76,38 @@ export const logOutAccount = () => {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// добавляем задачу в ready и удаляем ее из backlog
-export const addToReadyTasks = (task) => {
+// добавить в стейт гистограмму
+export const addHistogram = (data) => {
     return {
-        type: ACTIONS.ADD_TO_READYTASKS,
-        task,
-    }
-}
-
-// добавляем задачу в progress и удаляем ее из ready
-export const addToProgressTasks = (task) => {
-    return {
-        type: ACTIONS.ADD_TO_PROGRESSTASKS,
-        task,
-    }
-}
-
-// добавляем задачу в finished и удаляем ее из progress
-export const addToFinishedTasks = (task) => {
-    return {
-        type: ACTIONS.ADD_TO_FINISHEDTASKS,
-        task,
-    }
-}
-
-// удаляем задачу из backlog
-export const removeFromBacklogTasks = (task) => {
-    return {
-        type: ACTIONS.REMOVE_FROM_BACKLOGTASKS,
-        task,
-    }
-}
-
-// удаляем задачу из ready
-export const removeFromReadyTasks = (task) => {
-    return {
-        type: ACTIONS.REMOVE_FROM_READYTASKS,
-        task,
-    }
-}
-
-// удаляем задачу из progress
-export const removeFromProgressTasks = (task) => {
-    return {
-        type: ACTIONS.REMOVE_FROM_PROGRESSTASKS,
-        task,
-    }
-}
-
-// удаляем задачу из finished
-export const removeFromFinishedTasks = (task) => {
-    return {
-        type: ACTIONS.REMOVE_FROM_FINISHEDTASKS,
-        task,
+        type: ACTIONS.ADD_HISTOGRAM,
+        data,
     }
 }
 
 
-// отобразить/скрыть инпут при нажатии на кнопку в backlog
-export const clickBtnBacklog = () => {
+// добавить в стейт id найденных публикаций
+export const addSearchResultItem = (data) => {
     return {
-        type: ACTIONS.CLICK_BTN_BACKLOG
-    }
-}
-
-// изменить значение инпута в стейте 
-export const changeInput = (value) => {
-    return {
-        type: ACTIONS.CHANGE_INPUT,
-        value,
-    }
-}
-
-// отобразить поле для описания на индивидуальной странице задачи
-export const changeTextarea = (event) => {
-    return {
-        type: ACTIONS.CHANGE_TEXTAREA,
-        event
+        type: ACTIONS.ADD_SEARCHRESULTITEM,
+        data,
     }
 }
 
 
-// добавляем опсание к задаче баклога из текстареа
-export const addDescriptionBacklog = (indexBacklog, textareaValue) => {
+// добавить в стейт скандок 
+export const addScanDoc = (data) => {
     return {
-        type: ACTIONS.ADD_DESCRIPTION_BACKLOG,
-        indexBacklog, 
-        textareaValue,
+        type: ACTIONS.ADD_SCANDOC,
+        data,
     }
 }
 
+// удаление данных предыдущего поиска
+export const removeObjectSearch = () => {
+    return {
+        type: ACTIONS.REMOVE_OBJECT_SEARCH
+    }
+}
 
 
 
